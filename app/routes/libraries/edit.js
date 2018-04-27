@@ -1,10 +1,20 @@
-
 import Route from '@ember/routing/route';
 
 export default Route.extend({
 
   model(params) {
     return this.store.findRecord('library', params.library_id);
+  },
+
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Edit library');
+    controller.set('buttonLabel', 'Save changes');
+  },
+
+  renderTemplate() {
+    this.render('libraries/form');
   },
 
   actions: {
@@ -14,7 +24,6 @@ export default Route.extend({
     },
 
     willTransition(transition) {
-
       let model = this.controller.get('model');
 
       if (model.get('hasDirtyAttributes')) {

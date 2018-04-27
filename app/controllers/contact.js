@@ -1,7 +1,14 @@
 import Controller from '@ember/controller';
-import { match, not } from '@ember/object/computed';
-import { gte } from '@ember/object/computed';
-import { and } from '@ember/object/computed';
+import {
+  match,
+  not
+} from '@ember/object/computed';
+import {
+  gte
+} from '@ember/object/computed';
+import {
+  and
+} from '@ember/object/computed';
 
 export default Controller.extend({
   headerMessage: 'Contact Page',
@@ -15,11 +22,21 @@ export default Controller.extend({
 
   actions: {
 
-    saveInvitation() {
-      alert(`Saving of the following email address and message is in progress: ${this.get('emailAddress')}, ${this.get('message')}`);
-      this.set('responseMessage', `Thank you! We've just saved your email address and message: ${this.get('emailAddress')}, ${this.get('message')}`);
-      this.set('emailAddress', '');
-      this.set('message', '');
+    saveMessage() {
+      const email = this.get('emailAddress');
+      const message = this.get('message');
+
+      const newContact = this.store.createRecord('contact', {
+        email,
+        message
+      });
+
+      newContact.save().then(response => {
+        this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
+        this.set('emailAddress', '');
+        this.set('message', '');
+      });
+
     }
   }
 });

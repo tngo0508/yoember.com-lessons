@@ -19,7 +19,7 @@ export default Controller.extend({
       const email = this.get('emailAddress');
 
       const newInvitation = this.store.createRecord('invitation', {
-        email: email
+        email
       });
 
       newInvitation.save().then(response => {

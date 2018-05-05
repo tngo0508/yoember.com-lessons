@@ -12,6 +12,7 @@ import {
 
 export default Controller.extend({
   headerMessage: 'Contact Page',
+  responseMessage: '',
   message: '',
   emailAddress: '',
 

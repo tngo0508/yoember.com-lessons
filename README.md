@@ -55,3 +55,4 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 # yoember.com-lessons
+This app is deployed using google firebase and it can be visit at [https://yoember-dbf45.firebaseapp.com/](https://yoember-dbf45.firebaseapp.com/).
